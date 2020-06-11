@@ -8,8 +8,10 @@ Return the linked list sorted as well.
 
 Example 1:
 
+```
 Input: 1->2->3->3->4->4->5
 Output: 1->2->5
+```
 
 ## Intuition
 
@@ -33,11 +35,11 @@ points to the first element.
 
 ## Algorithm
 
-2. Loop until the next element is null
-  2.a. Store the current node's value
-  2.b. If the current element is not equal to the next one then skip the
+1. Loop until the next element is null
+  a. Store the current node's value
+  b. If the current element is not equal to the next one then skip the
   current element
-  2.c. Otherwise: While the current element's value is equal to the stored value
+  c. Otherwise: While the current element's value is equal to the stored value
   we link the previous element to the next one in the list
 
 ```
