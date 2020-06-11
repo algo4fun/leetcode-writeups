@@ -18,29 +18,29 @@ Output: 1->2->5
 As the problem states that the list is sorted we can easily iterate over each
 element and remove any element which have a value equal to it's successor.
 To do so we have no other choice but iterating on the list which makes the
-solution having a time complexity of O(n).
-As we can just re-order the links of the list we are not technically in need to
-allocate any extra space for that.
+solution having a time complexity of `O(n)`.
 
-The intuitive approach will be to **iterate** on each element and **if** the
-current element and it's successor have the same value **then** we store it's
-value and **loop** to remove the current element **until** it's value is different
-than the duplicate value found previously.
+The intuitive approach will be to **iterate** on each element and do a forward
+lookup to check the value of the next element. **If** both are equal we can
+remove them along with the elements behind them with the same value.
 Each time we remove an element we will have to link the *previous element* in
 the list to the successor of the current one.
 
+As we can just re-order the links of the list we are not technically in need to
+allocate any extra space for that.
+
 Beware about loosing your head because the first element might be a duplicate.
-To leverage that we can create an "sentinel" which is basically a node which
+To leverage that we can create an "sentinel" which is basically a node poiting
 points to the first element.
 
 ## Algorithm
 
-1. Loop until the next element is null
-  a. Store the current node's value
-  b. If the current element is not equal to the next one then skip the
-  current element
-  c. Otherwise: While the current element's value is equal to the stored value
-  we link the previous element to the next one in the list
+1. Store the current node's value
+2. If the current element is not equal to the next one then skip the
+current element
+3. Otherwise: While the current element's value is equal to the stored value
+we link the previous element to the next one in the list
+4. Loop until the next element is null
 
 ```
 sentinel -> 1 -> 2 -> 3 -> 3 -> 4
