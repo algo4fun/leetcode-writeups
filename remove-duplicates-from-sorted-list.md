@@ -32,6 +32,7 @@ allocate any extra space for that.
 Beware about loosing your head because the first element might be a duplicate.
 To leverage that we can create an "sentinel" which is basically a node poiting
 points to the first element.
+The space complexity will then be `O(1)`.
 
 ## Algorithm
 
@@ -42,11 +43,27 @@ current element
 we link the previous element to the next one in the list
 4. Loop until the next element is null
 
+Note: `V` points to the current element
 ```
+Step 1: find a duplicate
+		      V
 sentinel -> 1 -> 2 -> 3 -> 3 -> 4
+found duplicate=3
 
+Step2: remove all nodes with the duplicate value
+		     V
 sentinel -> 1 -> 2   3 -> 3 -> 4
 		 |________^
+
+		      V
+sentinel -> 1 -> 2 -> 3 -> 4
+
+		      V
+sentinel -> 1 -> 2 -> 3 -> 4
+		 |_________^
+
+		      V
+sentinel -> 1 -> 2 -> 4
 ```
 
 Code:
